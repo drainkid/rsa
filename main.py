@@ -125,7 +125,7 @@ def decrypt():
         inputt.append(elem)
     f.close()
     result = rsa_decode(inputt,d,n)
-    f2 = open('out2.txt', 'w')
+    f2 = open('out2.txt','w')
     for elem in result:
         f2.write(str(elem))
 
