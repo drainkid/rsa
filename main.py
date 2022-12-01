@@ -11,7 +11,7 @@ character = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N
 def calculate_d(m):
     d = m-1
     for i in range(2,m,1):
-        if (m%i ==0) and (d%i == 0):
+        if (m%i == 0) and (d%i == 0):
             d-=1
             i=1
 
@@ -74,7 +74,7 @@ def rsa_encode(s,e,n):
     return (result)
 
 def encrypt():
-   ch =  int(input("0 - Рандомная генерация, 1- Сами вводим"))
+   ch =  int(input("0 - Рандомная генерация, 1 - Сами вводим"))
 
    if ch == 0:
     q = random.choice(get_primes(100))
@@ -106,15 +106,13 @@ def encrypt():
 def rsa_decode(input, d, n):
     result = list()
     decimal.getcontext().prec = 100
-    try:
-        for item in input:
+    for item in input:
             bi = int(item)
             bi = pow(bi,d)
             bi = bi % n
             ind = int(bi)
             result += str(character[ind])
-    except: IndexError
-    print('неверный пароль')
+
     return result
 
 def decrypt():
@@ -138,7 +136,6 @@ def main():
     q = int(input("Хотим расшифровать данные? Введите 0 если хотим"))
     if q == 0:
         decrypt()
-        q == randint(1,10)
     else:
         print('.')
 
